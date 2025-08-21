@@ -1,4 +1,4 @@
-/* Hero section with gradient background */
+/* Hero section */
 .hero {
   position: relative;
   display: flex;
@@ -6,7 +6,7 @@
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   border-radius: var(--radius);
   background: linear-gradient(135deg, #f9f9ff, #eaf4ff);
   overflow: hidden;
@@ -16,23 +16,25 @@
 .bg-shape {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.15;
+  opacity: 0.1;
+  filter: blur(60px);
   animation: float 6s ease-in-out infinite alternate;
+  z-index: 0;
 }
 
 .shape1 {
-  width: 200px;
-  height: 200px;
-  top: -50px;
-  left: -50px;
+  width: 220px;
+  height: 220px;
+  top: -60px;
+  left: -60px;
   background: var(--secondary-color);
 }
 
 .shape2 {
-  width: 300px;
-  height: 300px;
-  bottom: -80px;
-  right: -80px;
+  width: 340px;
+  height: 340px;
+  bottom: -100px;
+  right: -100px;
   background: var(--primary-color);
 }
 
@@ -41,40 +43,45 @@
   flex: 1;
   text-align: left;
   animation: fadeInUp 1s ease forwards;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-text h2 {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 800;
   color: var(--primary-color);
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .hero-text p {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--text-dark);
   margin-bottom: 2rem;
-  line-height: 1.7;
-  max-width: 500px;
+  line-height: 1.8;
+  max-width: 520px;
 }
 
-/* CTA Button */
+/* CTA Buttons */
 .cta-btn {
   display: inline-block;
   background: var(--primary-color);
   color: #fff;
-  padding: 0.9rem 2rem;
+  padding: 0.85rem 2rem;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1.1rem;
-  box-shadow: 0 6px 14px rgba(74, 144, 226, 0.3);
+  font-size: 1rem;
+  margin-right: 1rem;
+  box-shadow: 0 6px 14px rgba(74, 144, 226, 0.25);
   transition: all 0.3s ease;
 }
 
 .cta-btn:hover {
   background: var(--secondary-color);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 18px rgba(235, 162, 229, 0.4);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(235, 162, 229, 0.35);
 }
 
 /* Image */
@@ -82,17 +89,30 @@
   flex: 1;
   text-align: center;
   animation: fadeInRight 1.2s ease forwards;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-image img {
-  max-width: 100%;
-  border-radius: var(--radius);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  max-width: 95%;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-image img:hover {
   transform: scale(1.05);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25);
+}
+
+.hero-image p {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
 }
 
 /* Animations */
@@ -101,14 +121,14 @@
     transform: translateY(0px);
   }
   to {
-    transform: translateY(20px);
+    transform: translateY(25px);
   }
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -119,7 +139,7 @@
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(40px);
   }
   to {
     opacity: 1;
@@ -128,10 +148,11 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .hero {
     flex-direction: column;
     text-align: center;
+    padding: 4rem 1.5rem;
   }
 
   .hero-text {
@@ -139,11 +160,19 @@
   }
 
   .hero-text h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .hero-text p {
     font-size: 1rem;
     margin: 0 auto 1.5rem;
+  }
+
+  .cta-btn {
+    margin: 0.5rem;
+  }
+
+  .hero-image img {
+    max-width: 100%;
   }
 }
